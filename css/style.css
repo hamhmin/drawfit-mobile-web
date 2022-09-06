@@ -1,0 +1,375 @@
+@import url('./reset.css');
+@import url('./sub.css');
+:root{
+    --main-color:#333333;
+    --sub-color1:#666666;
+    --sub-color2:#ffffff;
+    --header-height:50px;
+}
+/* max min margin*/
+
+.page{
+    position: absolute;
+    /* relative 하게되면 main 영역이 좌측으로 붙게되서
+    left 50% tlX-50% */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    min-width: 320px;
+    overflow: auto;
+    overflow-x:hidden;
+    /* x 축만 hidden 시킬 시 모바일화면
+    마지막페이지에 한번 더 스크롤할시 .page영역이
+    반영구적으로 늘어나게됨 */
+}
+header{
+    max-width: 500px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+main{
+    max-width: 500px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+#popup{
+    max-width: 500px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+body{
+    max-width: 500px;
+    min-width: 320px;
+    margin: 0 auto;
+
+}
+img{
+    display: block;
+}
+
+/* scroll delete */
+body{
+    -ms-overflow-style: none;
+    }
+    
+   ::-webkit-scrollbar {
+     display: none;
+   }
+   
+
+#main-header{
+    width: 100vw;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:20px;
+}
+#main-header a{
+    display: block;
+    color: #333;
+}
+.logo{
+    width: 95px;
+    height: 20px;
+}
+#main-header .bi{
+    font-size: 24px;
+}
+
+#main-header .search{
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+#main-header .bi-search{
+    font-size: 19px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#main-header .search-x{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/*  #home */
+#home main{
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    margin: 0 auto;
+
+}
+#home main .scroll-snap-box{    
+    width: 100%;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+}
+#home main section.scroll-area{
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+
+}
+
+#home .down-btn-box{
+    position: absolute;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* button에도 radius를 주거나 부모요소에 hidden 두가지 방법 */
+    
+}
+#home .down-btn-box button{
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border: 0;
+    color: #fff;
+    background: #999;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    border-radius: 20px;
+    background: #333;
+}
+#home .down-btn-box .btn-circle{
+    width: 7px;
+    height:7px;
+    background: #999;
+    border-radius: 50%;
+    background: #333;
+}
+#home main .mi{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
+}
+#home main #popup{
+    position: fixed;
+    width: 100vw;
+    height: 30vh;
+    min-height: 180px;
+    bottom: 0;
+    background-image: url(../images/popup.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding-top: 10px;
+}
+#home main #popup .bi{
+    position: absolute;
+    font-size: 30px;
+    color: var(--sub-color2);
+    right: 10px;
+    top: 0px;
+}
+#home main #popup p{
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--sub-color2);
+    text-align: center;
+}
+     /* gnb */
+.gnb{
+    padding: 35px;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    right: -265px;
+    width: 265px;
+    height: 100vh;
+    background: #fff;
+    z-index: 150;
+    transition-duration: 0.5s;
+}
+.gnb .bi-x{
+    font-size: 30px;
+    position: absolute;
+    right: 17px;
+    top: 3px;
+    color: var(--main-color);
+}
+.gnb ul{
+    margin-top: 10px;
+}
+.gnb .main-nav li{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.gnb .main-nav li a{
+     display: block;
+     width: 100%;
+     height: 100%;
+}
+.gnb .sub-nav{
+    margin-top: 30px;
+}
+.gnb .sub-nav li{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.gnb .sns{
+    margin-top: 15px;
+    font-size: 25px;
+}
+.gnb .sns .bi-instagram{
+    margin-left: 10px;
+}
+
+
+
+.input-box{
+    position: fixed;
+    display: flex;
+    opacity: 0;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    width: 0;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: 0.8s;
+    box-shadow: 0 0 25px 0 rgba(0,0,0,0.4);
+    max-width: 400px;
+}
+
+.input-box input{
+    background: transparent;
+    display: none;
+    border: none;
+    outline: none;
+    width: 0;
+    max-width: 400px;
+    font-weight: 300;
+    font-size: 13px;
+    transition: 0.8s;
+}
+.input-box .input-search{
+    color: #333;
+    margin-bottom: 2px;
+   font-size: 13px;
+
+}
+
+#current-area{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 10px;
+    height: 60px;
+}
+#current-area .ca{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    transition-duration: 0s;
+}
+#current-area .ca.current-sub-active{
+    width: 6px;
+    height: 6px;
+    background: #aaa;
+    animation-name: current-sub-active;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes current-sub-active {
+    0%{
+        background: #fff;
+    }
+    50%{
+        background: #999;
+}
+100%{
+    background:#aaa;
+}
+}
+#current-area .ca.current-active{
+    width: 8px;
+    height: 8px;
+    animation-name: current-active;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes current-active {
+    0%{
+        background: #fff;
+    }
+    50%{
+        background: #000;
+}
+100%{
+    background:#333;
+    width: 8px;
+    height: 8px;
+}
+}
+
+/*  footer  */
+
+footer{
+    background: #f3f3f3;
+    padding: 30px 20px;
+}
+footer.scroll-area{
+    scroll-snap-align: start;
+}
+footer article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+footer article .sns .bi{
+    color: #333;
+    font-size: 26px;
+}
+footer article .sns a:first-child{
+    margin-right: 20px;
+}
+footer article p{
+    text-align: center;
+    word-break:keep-all;
+    font-size: 9px;
+    line-height: 20px;
+    color: #999;
+}
+footer article p span{
+    color: #666;
+    font-weight: 500;
+}
